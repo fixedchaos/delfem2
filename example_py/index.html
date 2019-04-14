@@ -270,6 +270,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Building Instruction" class="md-nav__link">
+      Building Instruction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -297,13 +309,6 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-linux-and-mac" title="Install (Linux and Mac)" class="md-nav__link">
-    Install (Linux and Mac)
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#solving-poissons-equation" title="Solving Poisson's Equation" class="md-nav__link">
@@ -375,13 +380,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-linux-and-mac" title="Install (Linux and Mac)" class="md-nav__link">
-    Install (Linux and Mac)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#solving-poissons-equation" title="Solving Poisson's Equation" class="md-nav__link">
     Solving Poisson's Equation
   </a>
@@ -415,46 +413,9 @@
                 
                 
                 <h1 id="examples-python">Examples (Python)</h1>
-<h2 id="install-linux-and-mac">Install (Linux and Mac)</h2>
-<p>To install the DelFEM2 you need to install several packages with the command</p>
-<div class="codehilite"><pre><span></span>sudo apt install git cmake
-</pre></div>
-
-
-<p>download DelFEM2 from github </p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/nobuyuki83/delfem2.git
-</pre></div>
-
-
-<p>then, download the submodules on which the DelFEM2 depends.</p>
-<div class="codehilite"><pre><span></span>git submodule update --init --recursive
-</pre></div>
-
-
-<p>Next, build the DelFEM2 python module with the following command</p>
-<div class="codehilite"><pre><span></span>cd module_py
-mkdir buildMake
-cd buildMake
-cmake ..
-make
-</pre></div>
-
-
-<p>If everything is is successful, the binary will be placed under  <code>delfem2/module_py/buildMake/</code>. The bindary has name <code>dfm2.**.so</code> where the <code>**</code> is the compilation environment. The compiled binary will be automatically replaced and renamed as<code>delfem2/module_py/dfm2/dfm2.so</code>.</p>
-<p>This is not a recommended way of installation, but you may also use <code>pip</code> to install the module_py using the <code>setup.py</code></p>
-<div class="codehilite"><pre><span></span>pip install . -e
-</pre></div>
-
-
-<p>Finally, install several python modules which the DelFEM2 depends on as</p>
-<div class="codehilite"><pre><span></span>python3 -m pip install numpy PyOpenGL glfw
-</pre></div>
-
-
-<p>Try running the python examples in <code>delfem2/example_py/</code>. If the examples work congraturations!! I hope you enjoy the library.</p>
 <h2 id="solving-poissons-equation">Solving Poisson's Equation</h2>
 <p>Here is the example solving the Poisson's equation on a 2D square domain. The value on the boundary is fixed and there is a source term.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dfm2</span>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">dfm2</span>
 
 <span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mf">1.0</span><span class="p">])</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
@@ -472,7 +433,7 @@ make
 <hr />
 <h2 id="solving-linear-solid-static-2d">Solving Linear Solid Static 2D</h2>
 <p>In this example the static linear solid equation is solved in the 2D square domain. The XY displacement on the left edge is fixed and the gravity is pulling the material in the direction of -Y axis. </p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dfm2</span>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">dfm2</span>
 
 <span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mf">1.0</span><span class="p">])</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
@@ -507,7 +468,7 @@ make
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../install/" title="Building Instruction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -516,7 +477,7 @@ make
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Building Instruction
               </span>
             </div>
           </a>
