@@ -287,6 +287,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#download" title="Download" class="md-nav__link">
     Download
   </a>
@@ -301,22 +308,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" title="Python" class="md-nav__link">
-    Python
+  <a href="#use-delfem2-from-python" title="Use DelFEM2 from Python" class="md-nav__link">
+    Use DelFEM2 from Python
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c" title="C++" class="md-nav__link">
-    C++
+  <a href="#use-delfem2-from-c" title="Use DelFEM2 from C++" class="md-nav__link">
+    Use DelFEM2 from C++
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#licence" title="Licence" class="md-nav__link">
-    Licence
+  <a href="#licence-copyright" title="Licence &amp; Copyright" class="md-nav__link">
+    Licence &amp; Copyright
   </a>
   
 </li>
@@ -324,13 +331,6 @@
         <li class="md-nav__item">
   <a href="#contact" title="Contact" class="md-nav__link">
     Contact
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copyright" title="Copyright" class="md-nav__link">
-    Copyright
   </a>
   
 </li>
@@ -415,6 +415,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#download" title="Download" class="md-nav__link">
     Download
   </a>
@@ -429,22 +436,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" title="Python" class="md-nav__link">
-    Python
+  <a href="#use-delfem2-from-python" title="Use DelFEM2 from Python" class="md-nav__link">
+    Use DelFEM2 from Python
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c" title="C++" class="md-nav__link">
-    C++
+  <a href="#use-delfem2-from-c" title="Use DelFEM2 from C++" class="md-nav__link">
+    Use DelFEM2 from C++
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#licence" title="Licence" class="md-nav__link">
-    Licence
+  <a href="#licence-copyright" title="Licence &amp; Copyright" class="md-nav__link">
+    Licence &amp; Copyright
   </a>
   
 </li>
@@ -452,13 +459,6 @@
         <li class="md-nav__item">
   <a href="#contact" title="Contact" class="md-nav__link">
     Contact
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copyright" title="Copyright" class="md-nav__link">
-    Copyright
   </a>
   
 </li>
@@ -489,32 +489,91 @@
 <li>Seemless integration with Numpy.</li>
 <li>Integrated CAD / Mesher / Solver / Visualizer</li>
 </ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Built in mesh generation<ul>
+<li>2D triangle mesh (Delaunay triangulation)</li>
+<li>3D tetrahedra mesh (Isosurface stuffing)</li>
+</ul>
+</li>
+<li>Built in sparse linar solver<ul>
+<li>Congugate gradient method</li>
+<li>BiCGStab method</li>
+<li>ILU(0) preconditioner</li>
+</ul>
+</li>
+<li>Supports many equations on many types of mesh<ul>
+<li>Poission's equation<ul>
+<li>2D triangle mesh</li>
+<li>3D tetrahedra mesh</li>
+</ul>
+</li>
+<li>Diffusion equation<ul>
+<li>2D triangle mesh</li>
+<li>3D tetrahedra mesh</li>
+</ul>
+</li>
+<li>Linear solid equation<ul>
+<li>2D trianlge mesh</li>
+<li>3D tetrahedra mesh</li>
+</ul>
+</li>
+<li>Simulation of cloth<ul>
+<li>3D triangle mesh</li>
+</ul>
+</li>
+<li>Storkes equation<ul>
+<li>2D trianlge mesh</li>
+<li>3D tetrahedra mesh</li>
+</ul>
+</li>
+<li>Navier-Storkes equation<ul>
+<li>2D trianlge mesh (PSPG/SUPG stabilization)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Visualization<ul>
+<li>color contour</li>
+<li>mesh displacement</li>
+</ul>
+</li>
+<li>IO<ul>
+<li>VTK file output</li>
+</ul>
+</li>
+</ul>
 <h2 id="download">Download</h2>
 <p>Please download the latest project by cloning the <a href="https://github.com/nobuyuki83/delfem2">GitHub repository</a></p>
 <h2 id="project-layout">Project layout</h2>
-<div class="codehilite"><pre><span class="n">docs</span>           <span class="c-Singleline"># This document</span>
+<div class="codehilite"><pre><span class="n">docs</span>          <span class="c-Singleline"># This document</span>
 <span class="n">src_cpp</span>/
-    <span class="n">cpp</span>        <span class="c-Singleline"># cpp files</span>
-    <span class="n">include</span>    <span class="c-Singleline"># include files for cpp</span>
-    <span class="n">external</span>   <span class="c-Singleline"># external dependencies</span>
+    <span class="n">cpp</span>       <span class="c-Singleline"># cpp files</span>
+    <span class="n">include</span>   <span class="c-Singleline"># include files for cpp</span>
+    <span class="n">external</span>  <span class="c-Singleline"># external dependencies</span>
 <span class="n">module_py</span>
-    <span class="n">dfm2</span>       <span class="c-Singleline"># python module folder</span>
-<span class="n">example_cpp</span>    <span class="c-Singleline"># Cpp examples</span>
-<span class="n">example_py</span>     <span class="c-Singleline"># Python examples</span>
+    <span class="n">dfm2</span>      <span class="c-Singleline"># python module folder</span>
+<span class="n">example_cpp</span>   <span class="c-Singleline"># cpp examples</span>
+<span class="n">example_py</span>    <span class="c-Singleline"># python examples</span>
+<span class="n">test</span>          <span class="c-Singleline"># Unit tests for C++/Python</span>
+<span class="n">test_inputs</span>   <span class="c-Singleline"># Input files for test</span>
 </pre></div>
 
 
-<h2 id="python">Python</h2>
+<h2 id="use-delfem2-from-python">Use DelFEM2 from Python</h2>
 <p>To build the python module pleese see <a href="install">building instruction</a>.</p>
 <p>For the examples see <a href="example_py">python examples</a>.</p>
-<h2 id="c">C++</h2>
+<h2 id="use-delfem2-from-c">Use DelFEM2 from C++</h2>
 <p>See the <a href="example_cpp">cpp examples</a></p>
-<h2 id="licence">Licence</h2>
-<p>DelFEM2 is distributed under the <a href="https://github.com/nobuyuki83/delfem2/blob/master/LICENSE">MIT licence</a></p>
+<h2 id="licence-copyright">Licence &amp; Copyright</h2>
+<p>DelFEM2 is distributed under the <a href="https://github.com/nobuyuki83/delfem2/blob/master/LICENSE">MIT licence</a>. </p>
+<p>In a nut shell, it is free to use/distribute this software commercially for any purpose. But please always keep the copyright notice below and the MIT lisence statement.</p>
+<div class="codehilite"><pre><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Nobuyuki</span> <span class="n">Umetani</span> <span class="mi">2019</span>
+</pre></div>
+
+
 <h2 id="contact">Contact</h2>
 <p>DelFEM2 is currently developed and maintained by <a href="http://www.nobuyuki-umetani.com/">Nobuyuki Umetani</a>. If you have questions or comments please <a href="mailto:n.umetani@gmail.com">contact</a>.</p>
-<h2 id="copyright">Copyright</h2>
-<p>Nobuyuki Umetani -- All rights reserved.</p>
                 
                   
                 

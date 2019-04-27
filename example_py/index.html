@@ -318,8 +318,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solving-linear-solid-static-2d" title="Solving Linear Solid Static 2D" class="md-nav__link">
-    Solving Linear Solid Static 2D
+  <a href="#solving-linear-solid-static-equation-in-2d" title="Solving Linear Solid Static Equation in 2D" class="md-nav__link">
+    Solving Linear Solid Static Equation in 2D
   </a>
   
 </li>
@@ -387,8 +387,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solving-linear-solid-static-2d" title="Solving Linear Solid Static 2D" class="md-nav__link">
-    Solving Linear Solid Static 2D
+  <a href="#solving-linear-solid-static-equation-in-2d" title="Solving Linear Solid Static Equation in 2D" class="md-nav__link">
+    Solving Linear Solid Static Equation in 2D
   </a>
   
 </li>
@@ -417,26 +417,26 @@
 <p>Here is the example solving the Poisson's equation on a 2D square domain. The value on the boundary is fixed and there is a source term.</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">dfm2</span>
 
-<span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mf">1.0</span><span class="p">])</span>
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">fem</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">FEM_Poisson</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-<span class="n">npIdP</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">points_edge</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">np_pos</span><span class="p">)</span>
-<span class="n">fem</span><span class="o">.</span><span class="n">ls</span><span class="o">.</span><span class="n">vec_bc</span><span class="p">[</span><span class="n">npIdP</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fem</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-<span class="n">field</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">val_color</span><span class="o">=</span><span class="n">fem</span><span class="o">.</span><span class="n">vec_val</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">dfm2</span><span class="o">.</span><span class="n">winDraw3d</span><span class="p">([</span><span class="n">field</span><span class="p">])</span>
+<span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>  <span class="c"># define shape</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">edge_length</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>                       <span class="c"># generate mesh</span>
+<span class="n">fem</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">FEM_Poisson</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>                 <span class="c"># define solver</span>
+<span class="n">npIdP</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">points_edge</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">np_pos</span><span class="p">)</span>         <span class="c"># indexes of points on the bondary</span>
+<span class="n">fem</span><span class="o">.</span><span class="n">ls</span><span class="o">.</span><span class="n">vec_bc</span><span class="p">[</span><span class="n">npIdP</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>                                <span class="c"># set the fixed boundary condition</span>
+<span class="n">fem</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>                                             <span class="c"># solve the equation</span>
+<span class="n">field</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">val_color</span><span class="o">=</span><span class="n">fem</span><span class="o">.</span><span class="n">vec_val</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>     <span class="c"># make the field for visualization</span>
+<span class="n">dfm2</span><span class="o">.</span><span class="n">winDraw3d</span><span class="p">([</span><span class="n">field</span><span class="p">])</span>                                 <span class="c"># visualization</span>
 </pre></div>
 
 
 <p><img alt="poission" src="../imgs/poisson.png" /></p>
 <p>The code is implemented based o the note I wrote: <a href="https://www.overleaf.com/read/qbyxxkyvzrgs">Finite Element Method: Solving Poission's Equation</a>.</p>
 <hr />
-<h2 id="solving-linear-solid-static-2d">Solving Linear Solid Static 2D</h2>
+<h2 id="solving-linear-solid-static-equation-in-2d">Solving Linear Solid Static Equation in 2D</h2>
 <p>In this example the static linear solid equation is solved in the 2D square domain. The XY displacement on the left edge is fixed and the gravity is pulling the material in the direction of -Y axis. </p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">dfm2</span>
 
-<span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mf">1.0</span><span class="p">])</span>
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">cad</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">Cad2D</span><span class="p">(</span><span class="n">list_xy</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">edge_length</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">fem</span> <span class="o">=</span> <span class="n">dfm2</span><span class="o">.</span><span class="n">FEM_LinearSolidStatic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">gravity</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">])</span>
 <span class="n">npIdP</span> <span class="o">=</span> <span class="n">cad</span><span class="o">.</span><span class="n">points_edge</span><span class="p">([</span><span class="mi">3</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">np_pos</span><span class="p">)</span>
 <span class="n">fem</span><span class="o">.</span><span class="n">ls</span><span class="o">.</span><span class="n">vec_bc</span><span class="p">[</span><span class="n">npIdP</span><span class="p">,:]</span> <span class="o">=</span> <span class="mi">1</span>
