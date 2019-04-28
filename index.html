@@ -494,6 +494,7 @@
 <li>Built in mesh generation<ul>
 <li>2D triangle mesh (Delaunay triangulation)</li>
 <li>3D tetrahedra mesh (Isosurface stuffing)</li>
+<li>Dynamic remesh</li>
 </ul>
 </li>
 <li>Built in sparse linar solver<ul>
@@ -503,34 +504,12 @@
 </ul>
 </li>
 <li>Supports many equations on many types of mesh<ul>
-<li>Poission's equation<ul>
-<li>2D triangle mesh</li>
-<li>3D tetrahedra mesh</li>
-</ul>
-</li>
-<li>Diffusion equation<ul>
-<li>2D triangle mesh</li>
-<li>3D tetrahedra mesh</li>
-</ul>
-</li>
-<li>Linear solid equation<ul>
-<li>2D trianlge mesh</li>
-<li>3D tetrahedra mesh</li>
-</ul>
-</li>
-<li>Simulation of cloth<ul>
-<li>3D triangle mesh</li>
-</ul>
-</li>
-<li>Storkes equation<ul>
-<li>2D trianlge mesh</li>
-<li>3D tetrahedra mesh</li>
-</ul>
-</li>
-<li>Navier-Storkes equation<ul>
-<li>2D trianlge mesh (PSPG/SUPG stabilization)</li>
-</ul>
-</li>
+<li>Poission's equation (Tri P1, Tet P1)</li>
+<li>Diffusion equation (Tri P1, Tet P1)</li>
+<li>Linear solid equation (Tri P1, Tet P1)</li>
+<li>Simulation of cloth (Tri P1)</li>
+<li>Storkes equation (Tri P1, Tet P1)</li>
+<li>Navier-Storkes equation with PSPG-SUPG stabilization (Tri P1)</li>
 </ul>
 </li>
 <li>Visualization<ul>
